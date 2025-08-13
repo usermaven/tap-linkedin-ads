@@ -89,7 +89,9 @@ class TapLinkedInAds(Tap):
             streams.CampaignsStream(self),
             streams.CampaignGroupsStream(self),
             streams.CreativesStream(self),
-            streams.VideoAdsStream(self),
+            # VideoAdsStream is deprecated - video content is now handled through CreativesStream
+            # The /v2/adDirectSponsoredContents endpoint is no longer available in API version 202507
+            # streams.VideoAdsStream(self),
         ]
 
 

@@ -226,8 +226,11 @@ class AccountUsersStream(LinkedInAdsStream):
         Returns:
             A dictionary of URL query parameters.
         """
+        from urllib.parse import quote
+        urn = f"urn:li:sponsoredAccount:{context['account_id']}"
+        # The List() wrapper should not be encoded, but the URN inside should be
         return {
-            "accounts": f"urn:li:sponsoredAccount:{context['account_id']}",
+            "accounts": f"List({quote(urn, safe='')})",
         }
 
 
@@ -677,7 +680,7 @@ class CreativesStream(LinkedInAdsStream):
         Property("account", StringType),
         Property("account_id", IntegerType),
         Property("campaign", StringType),
-        Property("campaign_id", StringType),
+        Property("campaign_id", IntegerType),
         Property(
             "content",
             ObjectType(

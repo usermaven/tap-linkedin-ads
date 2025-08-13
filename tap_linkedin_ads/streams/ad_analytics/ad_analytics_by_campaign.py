@@ -32,7 +32,7 @@ class _AdAnalyticsByCampaignInit(AdAnalyticsBase):
     parent_stream_type = CampaignsStream
 
     schema = PropertiesList(
-        Property("campaign_id", StringType),
+        Property("campaign_id", IntegerType),
         Property("documentCompletions", IntegerType),
         Property("documentFirstQuartileCompletions", IntegerType),
         Property("clicks", IntegerType),
